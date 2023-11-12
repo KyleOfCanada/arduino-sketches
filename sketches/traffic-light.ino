@@ -1,22 +1,27 @@
+int DELAY_TIME = 3000;
+int GREEN_PIN = 7;
+int YELLOW_PIN = 4;
+int RED_PIN = 2;
+
 void setup() {
   // put your setup code here, to run once:
-  pinMode(7, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(2, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(YELLOW_PIN, OUTPUT);
+  pinMode(RED_PIN, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   // Green light
-  digitalWrite(7, HIGH);
-  delay(5000);
-  digitalWrite(7, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(GREEN_PIN, LOW);
   // Yellow light
-  digitalWrite(4, HIGH);
+  digitalWrite(YELLOW_PIN, HIGH);
   delay(1000);
-  digitalWrite(4, LOW);
+  digitalWrite(YELLOW_PIN, LOW);
   // Red light
-  digitalWrite(2, HIGH);
-  delay(5000);
-  digitalWrite(2, LOW);
+  digitalWrite(RED_PIN, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(RED_PIN, LOW);
 }
