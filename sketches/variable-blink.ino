@@ -1,10 +1,22 @@
-int DELAY_TIME = 3000;
+int maxDelay = 3000;
+int DELAY_TIME ;
 int GREEN_PIN = 7;
 int YELLOW_PIN = 4;
 int RED_PIN = 2;
 int readPin = A5;
-float calcVal = 0;
-int pinVal = 0;
+float calcVal = 0.;
+int pinVal;
+
+void light(int pin) {
+  pinVal = analogRead(readPin);
+  calcVal = (pinVal) / 1023.;
+  DELAY_TIME = calcVal * maxDelay;
+  Serial.println(calcVal);
+  // Pin light
+  digitalWrite(pin, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(pin, LOW);
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -12,23 +24,18 @@ void setup() {
   pinMode(YELLOW_PIN, OUTPUT);
   pinMode(RED_PIN, OUTPUT);
   pinMode(readPin, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   pinVal = analogRead(readPin);
-  calcVal = (5 / 1023.) * (pinVal);
-  DELAY_TIME = calcVal;
+  calcVal = (pinVal) / 1023.;
+  DELAY_TIME = calcVal * maxDelay;
   Serial.println(calcVal);
   // Green light
-  digitalWrite(GREEN_PIN, HIGH);
-  delay(DELAY_TIME);
-  digitalWrite(GREEN_PIN, LOW);
+  light(GREEN_PIN);
   // Yellow light
-  digitalWrite(YELLOW_PIN, HIGH);
-  delay(DELAY_TIME);
-  digitalWrite(YELLOW_PIN, LOW);
+  light(YELLOW_PIN);
   // Red light
-  digitalWrite(RED_PIN, HIGH);
-  delay(DELAY_TIME);
-  digitalWrite(RED_PIN, LOW);
+  light(RED_PIN);
 }
