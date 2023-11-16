@@ -1,5 +1,5 @@
 int maxDelay = 3000;
-int DELAY_TIME ;
+int DELAY_TIME;
 int GREEN_PIN = 7;
 int YELLOW_PIN = 4;
 int RED_PIN = 2;

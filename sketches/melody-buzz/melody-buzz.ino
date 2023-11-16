@@ -20,7 +20,7 @@
 
 */
 
-#include "pitches.h"
+#include "./pitches/pitches.h"
 
 // notes in the melody:
 int melody[] = {
