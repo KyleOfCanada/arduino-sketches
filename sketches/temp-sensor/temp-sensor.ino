@@ -1,5 +1,5 @@
 int readPin = A2;
-float scaleF = 0.01;
+float scaleF = 0.02;
 float temp = 1.;
 float readVal;
 float calVal;
@@ -14,4 +14,5 @@ void loop() {
     calVal = readVal * (5.0/1023.);
     temp = calVal / scaleF;
     Serial.println(temp);
+    delay(1000);
 }
